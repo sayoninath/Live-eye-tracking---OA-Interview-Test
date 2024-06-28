@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interview OA Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="title-bar">
+        Interview OA Test
+        <button id="close-btn"></button>
+    </div>
+    <div id="main-window">
+        <div id="left-column">
+            <div id="video-section">
+                <img id="eye-tracking-video" src="{{ url_for('video_feed') }}" width="500" height="320" alt="Eye Tracking Video">
+                <div id="status-indicator"></div>
+            </div>
+            <div id="log-section">
+                <div id="proctor-log"></div>
+            </div>
+            <div id="timer-section">
+                <div id="time-remaining">Test Time Remaining: <span id="countdown">05:00</span></div>
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+        <div id="right-column">
+            <form id="mcq-form" action="/submit_test" method="post"> 
+                <div id="mcqs">
+                    <div class="mcq">
+                        <p>Which lifecycle method is invoked immediately after a component is mounted in React?</p>
+                        <input type="radio" name="q1" value="0"> componentDidMount()<br>
+                        <input type="radio" name="q1" value="1"> componentDidUpdate()<br>
+                        <input type="radio" name="q1" value="2"> componentWillMount()<br>
+                    </div>
+                    <div class="mcq">
+                        <p>What does the setState() method do in React?</p>
+                        <input type="radio" name="q2" value="0"> updates the component's state and re-renders the component<br>
+                        <input type="radio" name="q2" value="1">  sets the initial state of the component<br>
+                        <input type="radio" name="q2" value="2"> triggers the component to unmount from the DOM<br>
+                    </div>
+                    <div class="mcq">
+                        <p>Which of the following is used to handle forms in React?</p>
+                        <input type="radio" name="q3" value="0"> FormData<br>
+                        <input type="radio" name="q3" value="1"> ReactForm<br>
+                        <input type="radio" name="q3" value="2"> Controlled components<br>
+                    </div>
+                    <div class="mcq">
+                        <p>What is the purpose of React Router?</p>
+                        <input type="radio" name="q4" value="0"> To manage the state of React components<br>
+                        <input type="radio" name="q4" value="1"> To handle routing and navigation in React applications<br>
+                        <input type="radio" name="q4" value="2"> To provide a centralized store for application data<br>
+                    </div>
+                    <div class="mcq">
+                        <p>What is the purpose of prop-types library in React?</p>
+                        <input type="radio" name="q5" value="0"> To define types for props passed to components and validate them during development<br>
+                        <input type="radio" name="q5" value="1"> To provide built-in validation for HTML form elements<br>
+                        <input type="radio" name="q5" value="2"> To manage the state of React components efficiently<br>
+                    </div>
+                </div>
+                <button type="submit" id="submit-btn">Submit</button> 
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script>
+        
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                    clearInterval(this);
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let fiveMinutes = 60 * 5,
+                display = document.querySelector('#countdown');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+</body>
+</html>

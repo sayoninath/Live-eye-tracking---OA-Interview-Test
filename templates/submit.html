@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Submission Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/submit.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="checkmark">
+                &#10004;
+            </div>
+            <div class="confirmation-text">
+                Test Submitted Successfully!
+            </div>
+            <div class="optional-text">
+                Thank you for taking the Interview OA Test. You can now close this window.
+            </div>
+            <button id="close-btn">Close</button>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('close-btn').addEventListener('click', function() {
+        window.close();
+    });
+</script>
+</html>

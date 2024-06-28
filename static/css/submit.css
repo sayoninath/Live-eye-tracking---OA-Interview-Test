@@ -1,0 +1,48 @@
+body {
+    background-color: #f0f4f8; /* Light gray or very light shade of blue */
+    font-family: 'Montserrat', 'Ubuntu', 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.checkmark {
+    font-size: 100px;
+    color: rgba(0, 128, 0, 0.7); /* Green with 70% opacity */
+    margin-bottom: 20px;
+}
+
+.confirmation-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Black or dark gray */
+    margin-bottom: 10px;
+}
+
+.optional-text {
+    font-size: 16px;
+    color: #666; /* Slightly lighter shade of gray */
+    margin-bottom: 30px;
+}
+
+#close-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Bright blue or green */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#close-btn:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+}
